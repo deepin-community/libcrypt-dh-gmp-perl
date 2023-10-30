@@ -1,5 +1,144 @@
-template-repository (1.0-1) unstable; urgency=medium
+libcrypt-dh-gmp-perl (0.00012-2) unstable; urgency=medium
 
-  * Initial release
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-Browser URL to cgit web frontend
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ Laurent Baillet ]
+  * fix lintian file-contains-trailing-whitespace warning
+
+  [ gregor herrmann ]
+  * debian/control: update Build-Depends for cross builds.
+  * debian/watch: use uscan version 4.
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 9 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Add missing build dependency on libmodule-install-perl.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Sun, 12 Jun 2022 22:19:16 +0100
+
+libcrypt-dh-gmp-perl (0.00012-1) unstable; urgency=low
+
+  * Team upload.
+
+  [ gregor herrmann ]
+  * Strip trailing slash from metacpan URLs.
+
+  [ Salvatore Bonaccorso ]
+  * Imported Upstream version 0.00012
+  * Drop copyright stanza for removed file ppport.h
+  * Drop unversioned Depends on perl (covered by ${shlibs:Depends})
+  * Declare compliance with Debian Policy 3.9.5
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 06 Apr 2014 20:07:21 +0200
+
+libcrypt-dh-gmp-perl (0.00011-1) unstable; urgency=low
+
+  [ gregor herrmann ]
+  * debian/copyright: update wording of Comment about copyright
+    ownership.
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ gregor herrmann ]
+  * New upstream release.
+  * Update patches. Drop spelling.patch, fixed upstream. Refresh fix-
+    checklib-fail.patch (offset).
+  * Update years of copyright.
+  * Use debhelper 9.20120312 to get all hardening flags.
+  * Declare compliance with Debian Policy 3.9.4.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 18 Sep 2013 18:54:57 +0200
+
+libcrypt-dh-gmp-perl (0.00010-2) unstable; urgency=low
+
+  * Team upload
+
+  [ gregor herrmann ]
+  * debian/control: update {versioned,alternative} (build) dependencies.
+
+  [ Alessandro Ghedini ]
+  * Add fix-checklib-fail.patch
+  * Bump debhelper compat level to 9
+  * Update copyright to Copyright-Format 1.0
+  * Bump Standards-Version to 3.9.3 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Wed, 08 Aug 2012 16:47:18 +0200
+
+libcrypt-dh-gmp-perl (0.00010-1) unstable; urgency=low
+
+  * Team upload
+
+  [ Alessandro Ghedini ]
+  * New upstream release
+  * Drop split-flags.patch (merged upstream)
+  * Re-order (Build-)Depends (just cosmetics)
+
+  [ gregor herrmann ]
+  * Update years of copyright for inc/Module/*.
+
+ -- Alessandro Ghedini <al3xbio@gmail.com>  Tue, 22 Nov 2011 13:56:29 +0100
+
+libcrypt-dh-gmp-perl (0.00009-5) unstable; urgency=low
+
+  [ Salvatore Bonaccorso ]
+  * debian/copyright: Replace DEP5 Format-Specification URL from
+    svn.debian.org to anonscm.debian.org URL.
+  * Fix splitting of CCFLAGS and LDFLAGS in Makefile.PL.
+    CCFLAGS and LDFLAGS need to be split into words, not characters
+    Thanks to Colin Watson <cjwatson@ubuntu.com> (Closes: #648955)
+
+  [ Dominic Hargreaves ]
+  * Swap libextutils-parsexs-perl/perl alternate build-dependency around
+    following migration of perl 5.14 to unstable so that it can be
+    autobuilt
+
+ -- Dominic Hargreaves <dom@earth.li>  Thu, 17 Nov 2011 19:37:44 +0000
+
+libcrypt-dh-gmp-perl (0.00009-4) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Dominic Hargreaves ]
+  * Add alternate Build-Depends on perl (>= 5.14) which now satisfies
+    the libextutils-parsexs-perl requirement (and breaks the external
+    libextutils-parsexs-perl package) (Closes: #636641)
+  * Update Standards-Version to 3.9.2 (no changes)
+
+ -- Dominic Hargreaves <dom@earth.li>  Thu, 04 Aug 2011 21:19:03 +0100
+
+libcrypt-dh-gmp-perl (0.00009-3) unstable; urgency=low
+
+  * Team upload.
+  * Drop alternate Build-Depends on perl (>= 5.12) to workaround sbuild
+    bug #586275 causing FTBFS (Closes: #617280).
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 08 Mar 2011 07:45:58 +0100
+
+libcrypt-dh-gmp-perl (0.00009-2) unstable; urgency=low
+
+  * Team upload.
+  * debian/control:
+    - Change Build-Depends on libgmp3-dev to libgmp-dev.
+    - Bump Build-Depends on debhelper to (>= 8).
+  * Bump Debhelper compat level to 8.
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 06 Mar 2011 18:45:47 +0100
+
+libcrypt-dh-gmp-perl (0.00009-1) unstable; urgency=low
+
+  * Initial release (closes: #608999).
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 05 Jan 2011 11:55:50 +0100
