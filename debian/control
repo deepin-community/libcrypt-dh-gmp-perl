@@ -1,15 +1,44 @@
-Source: template-repository
-Section: unknown
+Source: libcrypt-dh-gmp-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>,
+           Dominic Hargreaves <dom@earth.li>
+Section: perl
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               perl-xs-dev,
+               perl:native,
+               libdevel-checklib-perl,
+               libgmp-dev,
+               libtest-requires-perl,
+               perl | libextutils-parsexs-perl,
+               libmodule-install-perl
+Standards-Version: 3.9.5
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libcrypt-dh-gmp-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libcrypt-dh-gmp-perl.git
+Homepage: https://metacpan.org/release/Crypt-DH-GMP
+Testsuite: autopkgtest-pkg-perl
 
-Package: template-repository
+Package: libcrypt-dh-gmp-perl
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         ${shlibs:Depends}
+Description: Crypt::DH replacement that uses GMP directly
+ Crypt::DH::GMP is a (somewhat) portable replacement to Crypt::DH, implemented
+ mostly in C.
+ .
+ In the beginning, there was Crypt::DH. However, Crypt::DH suffers from a
+ couple of problems: GMP/Pari libraries are almost always required; Crypt::DH
+ additionally has Math::BigInt in between GMP. Instantiating an object
+ comes with a relatively high cost, and if you make many computations in one
+ go, your program will suffer dramatically because of this.
+ .
+ Crypt::DH::GMP attempts to alleviate these problems by providing a
+ Crypt::DH-compatible layer, which, instead of doing calculations via
+ Math::BigInt, directly works with libgmp in C.
+ .
+ This means that essentially 2 call stacks worth of expensive Perl method
+ calls are eliminated and also only load 1 (Crypt::DH::GMP) module instead of
+ 3 (Crypt::DH + Math::BigInt + Math::BigInt::GMP) is needed.
+ .
+ These add up to a fairly significant increase in performance.

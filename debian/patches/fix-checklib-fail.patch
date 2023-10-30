@@ -1,0 +1,18 @@
+Description: Trigger build failures when needed libraries are not found
+Origin: vendor
+Forwarded: not-needed
+Author: Alessandro Ghedini <ghedo@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2013-09-18
+
+--- a/inc/Module/Install/XSUtil.pm
++++ b/inc/Module/Install/XSUtil.pm
+@@ -367,7 +367,7 @@
+         $self->build_requires( "Devel::CheckLib" => "0.4" );
+     }
+ 
+-    Devel::CheckLib::check_lib_or_exit(@dcl_args);
++    Devel::CheckLib::assert_lib(@dcl_args);
+ }
+ 
+ sub cc_append_to_ccflags{
